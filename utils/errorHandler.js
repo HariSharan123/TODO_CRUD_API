@@ -14,7 +14,6 @@ exports.createError = statusCode => {
 };
  
 exports.makeErrorResponse = error => {
-    console.log(error)
   const status = error.statusCode || 500;
   const message = error.message || 'Server Error';
   logger.error({ error: { message: message } });

@@ -7,7 +7,13 @@ const adminSchema = new Schema(
             type: String,
             required: true,
             unique: true,
-            maxLength: 50
+            maxLength: 50,
+            validate: {
+                validator: function(v) {
+                  return /(^$|^.*@.*\..*$)/.test(v);
+                },
+                message: props => `${props.value} is not a valid email!`
+            },
         },
         password: {
             type: String,
