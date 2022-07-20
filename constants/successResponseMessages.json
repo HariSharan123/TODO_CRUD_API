@@ -2,5 +2,9 @@
     "2000" : "Login successfully",
     "2001" : "Admin registered successfully",
     "2002" : "Admin is already exists",
-    "2003" : "Invalid email or password"
+    "2003" : "Invalid email or password",
+    "2004" : "Todo added successfully",
+    "2005" : "Todo updated successfully",
+    "2006" : "Todo deleted successfully",
+    "2007" : "Todo list successfully"
 }
