@@ -1,0 +1,6 @@
+{
+    "2000" : "Login successfully",
+    "2001" : "Admin registered successfully",
+    "2002" : "Admin is already exists",
+    "2003" : "Invalid email or password"
+}

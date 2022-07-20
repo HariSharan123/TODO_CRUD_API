@@ -3,16 +3,23 @@ const express = require('express')
 const app = express();
 const bodyParser = require('body-parser')
 const mongoose = require("mongoose");
+const errorHandler = require('./utils/errorHandler');
+const routes=require('./routes/api');
 
 app.use(bodyParser.json())
 
 
 
-app.use((request, response, next) => {
-    response.setHeader('Access-Control-Allow-Origin', '*')
-    response.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE')
-    response.setHeader('Access-Control-Allow-Headers', 'Content-Type, AuthorizationToken')
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE')
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, AuthorizationToken')
     next()
+})
+
+app.use('/api/v1', routes);
+app.use((error, req, res, next) => {
+    return res.status(250).json(errorHandler.makeErrorResponse(error))
 })
 
 
